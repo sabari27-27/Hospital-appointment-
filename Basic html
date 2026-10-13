@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Joseph Hospital - Appointment Form</title>
+</head>
+<body>
+ <h1>Joseph Hospital</h1>
+ <h2>Book an Appointment</h2>
+ <form action="save.php" method="POST">
+ <!-- Who is saving this form (optional, used by save.php) -->
+ <input type="hidden" name="savedBy" value="">
+ <!-- ================= PATIENT DETAILS ================= --> 
+ <fieldset>
+ <legend>Patient Details</legend>
+ <p>
+ <label for="firstName">First name *</label><br>
+ <input type="text" id="firstName" name="firstName" pattern="[A-Za-z ]{1,40}" maxlength="40" required>
+ </p>
+ <p>
+ <label for="lastName">Last name *</label><br>
+ <input type="text" id="lastName" name="lastName" pattern="[A-Za-z ]{1,40}" maxlength="40" required>
+ </p>
+ <p>
+ <label for="dob">Date of birth *</label><br>
+ <input type="date" id="dob" name="dob" required>
+ </p>
+ <p>
+ Gender:<br>
+ <label><input type="radio" name="gender" value="Male"> Male</label>
+ <label><input type="radio" name="gender" value="Female"> Female</label>
+ <label><input type="radio" name="gender" value="Other"> Other</label>
+ </p>
+ <p>
+ <label for="phone">Phone (10 digits) *</label><br>
+ <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" required>
+ </p>
+ <p>
+ <label for="email">Email</label><br>
+ <input type="email" id="email" name="email">
+ </p>
+ <p>
+ <label for="address">Address</label><br>
+ <textarea id="address" name="address" rows="3" cols="40" maxlength="255"></textarea>
+ </p>
+ <p>
+ <label for="bloodGroup">Blood group</label><br>
+ <select id="bloodGroup" name="bloodGroup">
+ <option value="">-- Select --</option>
+ <option>A+</option>
+ <option>A-</option>
+ <option>B+</option>
+ <option>B-</option>
+ <option>AB+</option>
+ <option>AB-</option>
+ <option>O+</option>
+ <option>O-</option>
+ </select>
+ </p>
+ <p>
+ <label for="idType">ID type</label><br>
+ <select id="idType" name="idType">
+ <option value="">-- Select --</option>
+ <option>Aadhaar</option>
+ <option>Voter ID</option>
+ <option>Driving Licence</option>
+ <option>Passport</option>
+ </select>
+ </p>
+ <p>
+ <label for="idNumber">ID number</label><br>
+ <input type="text" id="idNumber" name="idNumber" maxlength="50">
+ </p>
+ </fieldset>
+ <br>
+ <!-- ================= APPOINTMENT DETAILS ================= -->
+ <fieldset>
+ <legend>Appointment Details</legend>
+ <p>
+ <label for="department">Department *</label><br>
+ <select id="department" name="department" required>
+ <option value="">-- Select --</option>
+ <option>General Medicine</option>
+ <option>Cardiology</option>
+ <option>Orthopaedics</option>
+ <option>Paediatrics</option>
+ <option>Gynaecology</option>
+ <option>Neurology</option>
+ <option>Dermatology</option>
+ <option>ENT</option>
+ </select>
+ </p>
+ <p>
+ <label for="doctor">Preferred doctor</label><br>
+ <input type="text" id="doctor" name="doctor" maxlength="60">
+ </p>
+ <p>
+ <label for="apptDate">Appointment date *</label><br>
+ <input type="date" id="apptDate" name="apptDate" required>
+ </p>
+ <p>
+ <label for="apptTime">Appointment time *</label><br>
+ <select id="apptTime" name="apptTime" required>
+ <option value="">-- Select --</option>
+ <option>09:00 AM</option>
+ <option>10:00 AM</option>
+ <option>11:00 AM</option>
+ <option>12:00 PM</option>
+ <option>02:00 PM</option>
+ <option>03:00 PM</option>
+ <option>04:00 PM</option>
+ <option>05:00 PM</option>
+ </select>
+ </p>
+ <p>
+ Urgency *<br>
+ <label><input type="radio" name="urgency" value="routine" required> Routine</label>
+ <label><input type="radio" name="urgency" value="urgent"> Urgent</label>
+ <label><input type="radio" name="urgency" value="emergency"> Emergency</label>
+ </p>
+ <p>
+ <label for="symptoms">Symptoms / reason for visit *</label><br>
+ <textarea id="symptoms" name="symptoms" rows="4" cols="40" required></textarea>
+ </p>
+ <p>
+ Visit type:<br>
+ <label><input type="radio" name="visitType" value="New"> New patient</label>
+ <label><input type="radio" name="visitType" value="Follow-up"> Follow-up</label>
+ </p>
+ <p>
+ <label for="insurance">Insurance provider</label><br>
+ <input type="text" id="insurance" name="insurance" maxlength="40">
+ </p>
+ <p>
+ <label for="allergies">Known allergies</label><br>
+ <textarea id="allergies" name="allergies" rows="2" cols="40"></textarea>
+ </p>
+ </fieldset>
+ <br>
+ <!-- ================= EMERGENCY CONTACT ================= -->
+ <fieldset>
+ <legend>Emergency Contact</legend>
+ <p>
+ <label for="ecName">Contact name *</label><br>
+ <input type="text" id="ecName" name="ecName" pattern="[A-Za-z ]{1,40}" maxlength="40" required>
+ </p>
+ <p>
+ <label for="ecRelation">Relationship *</label><br>
+ <select id="ecRelation" name="ecRelation" required>
+ <option value="">-- Select --</option>
+ <option>Parent</option>
+ <option>Spouse</option>
+ <option>Sibling</option>
+ <option>Child</option>
+ <option>Friend</option>
+ <option>Other</option>
+ </select>
+ </p>
+ <p>
+ <label for="ecPhone">Contact phone (10 digits) *</label><br>
+ <input type="tel" id="ecPhone" name="ecPhone" pattern="[0-9]{10}" maxlength="10" required>
+ </p>
+ </fieldset>
+ <br>
+ <!-- ================= CONSENT + SUBMIT ================= -->
+ <p>
+ <label>
+ <input type="checkbox" name="consent" value="1" required>
+ I consent to Joseph Hospital storing my details for this appointment. *
+ </label>
+ </p>
+ <p>
+ <button type="submit">Save &amp; continue</button>
+ <button type="reset">Clear</button>
+ </p>
+ </form>
+</body>
+</html>
